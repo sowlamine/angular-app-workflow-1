@@ -3,6 +3,7 @@ import { RouterTestingModule } from '@angular/router/testing';
 import { AppComponent } from './app.component';
 
 describe('AppComponent', () => {
+  //---------------------------------UNIT TEST
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       imports: [
@@ -26,10 +27,17 @@ describe('AppComponent', () => {
     expect(app.title).toEqual('ng-demo');
   });
 
-  it('should render title', () => {
+  /**it('should render title', () => {
     const fixture = TestBed.createComponent(AppComponent);
     fixture.detectChanges();
     const compiled = fixture.nativeElement as HTMLElement;
     expect(compiled.querySelector('.content span')?.textContent).toContain('ng-demo app is running!');
+  });**/
+  //----------------Integration Test the hi element tag
+  it('should render title', () => {
+    const fixture = TestBed.createComponent(AppComponent);
+    fixture.detectChanges();
+    const compiled = fixture.nativeElement as HTMLElement;
+    expect(compiled.querySelector('h1')?.textContent).toContain('Welcome to ng-demo!');
   });
 });
